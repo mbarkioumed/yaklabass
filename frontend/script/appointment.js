@@ -89,8 +89,9 @@ if (token) {
         for (let videoCallBtn of videoCallBtns) {
             videoCallBtn.addEventListener("click", (e) => {
                 let id = e.target.dataset.id;
+                let userId = sessionStorage.getItem("name");
                 //console.log(id);
-                window.open(`https://localhost:5000/${id}`, "_blank");
+                window.open(`https://localhost:5000/${id}/${userId}`, "_blank");
             });
         }
     }
