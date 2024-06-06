@@ -146,6 +146,8 @@ async function pageReady() {
                 document.getElementById("sendButton").click();
             }
         });
+    document.getElementById("toggleMic").addEventListener("click", toggleMic);
+    document.getElementById("toggleCam").addEventListener("click", toggleCam);
 
     localVideo = document.getElementById("localVideo");
     remoteVideo = document.getElementById("remoteVideo");
@@ -230,6 +232,22 @@ function start(isCaller) {
             dataChannel.onopen = (e) => console.log("open!!!!");
             dataChannel.onclose = (e) => console.log("closed!!!!!!");
         };
+    }
+}
+
+function toggleMic() {
+    if (localStream) {
+        localStream
+            .getAudioTracks()
+            .forEach((track) => (track.enabled = !track.enabled));
+    }
+}
+
+function toggleCam() {
+    if (localStream) {
+        localStream
+            .getVideoTracks()
+            .forEach((track) => (track.enabled = !track.enabled));
     }
 }
 
