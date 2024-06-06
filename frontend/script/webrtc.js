@@ -354,6 +354,26 @@ function handleDataChannelMessage(event) {
         chatArea.innerHTML =
             `<div class="their-message"><a href="${url}" download="${data.name}">Download file</a></div>` +
             chatArea.innerHTML;
+    } else if (data.type === "end-call") {
+        // Handle end call message
+        end();
+        alert("CALL ENDED");
+    }
+}
+
+function end() {
+    if (peerConnection) {
+        // Send a message to the other peer to let them know the call has ended
+        const data = {
+            type: "end-call", // Add a type property
+        };
+        dataChannel.send(JSON.stringify(data));
+
+        peerConnection.close();
+        peerConnection = null;
+    }
+    if (remoteVideo) {
+        remoteVideo.srcObject = null;
     }
 }
 
