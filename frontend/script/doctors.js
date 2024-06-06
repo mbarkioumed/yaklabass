@@ -1,4 +1,4 @@
-let baseUrl = `https://localhost:5000`;
+let baseUrl = `https://192.168.56.177:5000`;
 
 let doctorContainer = document.querySelector("#doctorContainer");
 let searchBtn = document.getElementById("searchBtn");

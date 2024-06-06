@@ -1,4 +1,4 @@
-let baseUrl = `https://localhost:5000`;
+let baseUrl = `https://192.168.56.177:5000`;
 
 let token = sessionStorage.getItem("token");
 
@@ -91,7 +91,10 @@ if (token) {
                 let id = e.target.dataset.id;
                 let userId = sessionStorage.getItem("name");
                 //console.log(id);
-                window.open(`https://localhost:5000/${id}/${userId}`, "_blank");
+                window.open(
+                    `https://192.168.56.177:5000/${id}/${userId}`,
+                    "_blank"
+                );
             });
         }
     }

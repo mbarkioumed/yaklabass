@@ -52,7 +52,7 @@ const peerConnectionConfig = {
     ],
 };
 
-const socket = io("https://localhost:5000");
+const socket = io("https://192.168.56.177:5000");
 
 async function pageReady() {
     document
